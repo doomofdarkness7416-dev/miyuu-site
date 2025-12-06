@@ -1,0 +1,169 @@
+/* GLOBAL */
+html { scroll-behavior: smooth; }
+body { margin: 0; background-color: #FFD1DC; overflow-x: hidden; font-family: Arial, sans-serif; }
+
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    font-size: 18px;
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #4b4b4b;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.nav-item.active {
+    background-color: #ffb3c6;
+    color: white;
+}
+
+/* SECTIONS */
+section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 120px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+
+section.visible { opacity: 1; transform: translateY(0); }
+
+/* CLOUDS ANIMATION */
+@keyframes floatClouds { 0%{transform:translateX(0);}50%{transform:translateX(30px);}100%{transform:translateX(0);} }
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    filter: blur(1px);
+    opacity: 0.9;
+    animation: floatClouds infinite ease-in-out;
+}
+
+/* Home clouds */
+.cloud1 { width: 140px; height: 60px; top: 120px; left: 80px; animation-duration: 8s; }
+.cloud2 { width: 180px; height: 70px; top: 180px; right: 150px; animation-duration: 10s; }
+.cloud3 { width: 120px; height: 50px; top: 260px; left: 250px; animation-duration: 7s; }
+.cloud4 { width: 160px; height: 65px; top: 60px; left: 300px; animation-duration: 11s; }
+.cloud5 { width: 130px; height: 55px; top: 220px; right: 50px; animation-duration: 9s; }
+.cloud6 { width: 150px; height: 60px; top: 320px; left: 100px; animation-duration: 12s; }
+
+/* About Us clouds */
+.cloud7 { width: 120px; height: 50px; top: 50px; left: 50px; animation-duration: 9s; }
+.cloud8 { width: 140px; height: 60px; top: 120px; right: 80px; animation-duration: 11s; }
+.cloud9 { width: 130px; height: 55px; top: 200px; left: 250px; animation-duration: 10s; }
+
+/* MOUNTAINS */
+@keyframes mountainRise { 0%{transform:translateY(80px);opacity:0;}100%{transform:translateY(0);opacity:1;} }
+
+.mountains {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 350px;
+    animation: mountainRise 2.5s ease-out forwards;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.5s ease-out;
+}
+
+.mountains.visible { opacity: 1; transform: translateY(0); }
+.mountains path { fill: #FF8DAA; }
+
+/* TITLE & SUBTITLE */
+.title {
+    text-align: center;
+    margin-top: 180px;
+    font-size: 100px;
+    color: #4682B4;
+    font-family: 'Pacifico', cursive;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all 1.8s ease-out;
+}
+.title.visible { opacity: 1; transform: translateY(0); }
+
+.subtitle {
+    text-align: center;
+    margin-top: -10px;
+    font-size: 36px;
+    color: #4682B4;
+    font-family: 'Pacifico', cursive;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all 2.2s ease-out;
+}
+.subtitle.visible { opacity: 1; transform: translateY(0); }
+
+/* CITY */
+.city {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    background: url('https://i.imgur.com/v4N8rxE.png') repeat-x;
+    background-size: contain;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.5s ease-out;
+}
+.city.visible { opacity: 1; transform: translateY(0); }
+
+/* ABOUT US */
+.about-content {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #ffe6f0;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #d35a7a;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease-out;
+}
+.about-content.visible { opacity: 1; transform: translateY(0); }
+
+.about-content h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #ff6f91;
+    text-shadow: 1px 1px 2px #ffb3c6;
+}
+
+/* GALLERY */
+#gallery {
+    background: white;
+    text-align: center;
+    font-size: 40px;
+    color: #d35a7a;
+    font-family: 'Pacifico', cursive;
+}
